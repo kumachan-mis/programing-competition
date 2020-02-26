@@ -4,7 +4,8 @@ using namespace std;
  
 // typedef
 typedef long long ll;
-typedef long double ldbl;
+typedef long double ld;
+typedef pair<int, int> pii;
 typedef vector<int> vi;
 typedef vector<vi> vvi;
 typedef vector<ll> vll;
@@ -30,11 +31,6 @@ typedef vector<string> vs;
 // i/o
 #define TFOUT(b,t,f) cout << ((b)? (t) : (f)) << endl
  
-// constant
-const double PI  = acos(-1.0);
-const int    MOD = (int)(1e9 + 7);
-// DO NOT set INFTY_XXXs constants. They may bring some BUG! Use MAX_XXXs in climit instead.
- 
 // clear memory
 #define CLR(a) memset((a), 0 ,sizeof(a))
  
@@ -42,7 +38,20 @@ const int    MOD = (int)(1e9 + 7);
 #define dump(x)  cerr << #x << " = " << (x) << endl
 #define debug(x) cerr << #x << " = " << (x) << " (L" << __LINE__ << ")" << " " << __FILE__ << endl
 
+
 int main() {
-    
+    unordered_map<string, int> m;
+    int n; string s; cin >> n >> s;
+    REP(i, n-1) {
+        m[s.substr(i, 2)]++;
+    }
+    string ans; int cnt = -1;
+    for (const auto& p : m) {
+        if (cnt == -1 || cnt < p.second) {
+            ans = p.first;
+            cnt = p.second;
+        }
+    }
+    cout << ans << endl;
     return 0;
 }

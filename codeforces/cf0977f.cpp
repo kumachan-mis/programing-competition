@@ -4,7 +4,8 @@ using namespace std;
  
 // typedef
 typedef long long ll;
-typedef long double ldbl;
+typedef long double ld;
+typedef pair<int, int> pii;
 typedef vector<int> vi;
 typedef vector<vi> vvi;
 typedef vector<ll> vll;
@@ -30,11 +31,6 @@ typedef vector<string> vs;
 // i/o
 #define TFOUT(b,t,f) cout << ((b)? (t) : (f)) << endl
  
-// constant
-const double PI  = acos(-1.0);
-const int    MOD = (int)(1e9 + 7);
-// DO NOT set INFTY_XXXs constants. They may bring some BUG! Use MAX_XXXs in climit instead.
- 
 // clear memory
 #define CLR(a) memset((a), 0 ,sizeof(a))
  
@@ -42,7 +38,25 @@ const int    MOD = (int)(1e9 + 7);
 #define dump(x)  cerr << #x << " = " << (x) << endl
 #define debug(x) cerr << #x << " = " << (x) << " (L" << __LINE__ << ")" << " " << __FILE__ << endl
 
+template<typename T>
+inline std::vector<T> cin_vector(const size_t n) {
+     std::vector<T> vec;
+    vec.reserve(n);
+    for (size_t i = 0; i < n; ++i) {
+        T element; std::cin >> element;
+        vec.push_back(element);
+    }
+    return vec;
+}
+
+template<typename T>
+inline void cout_vector(const std::vector<T>& vec) {
+    for (size_t i = 0; i < vec.size()-1; ++i) {
+       std::cout << vec[i] << ' ';
+    }
+    std::cout << vec[vec.size()-1] << std::endl;
+}
+
 int main() {
-    
     return 0;
 }

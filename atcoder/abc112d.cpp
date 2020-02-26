@@ -4,7 +4,8 @@ using namespace std;
  
 // typedef
 typedef long long ll;
-typedef long double ldbl;
+typedef long double ld;
+typedef pair<int, int> pii;
 typedef vector<int> vi;
 typedef vector<vi> vvi;
 typedef vector<ll> vll;
@@ -30,11 +31,6 @@ typedef vector<string> vs;
 // i/o
 #define TFOUT(b,t,f) cout << ((b)? (t) : (f)) << endl
  
-// constant
-const double PI  = acos(-1.0);
-const int    MOD = (int)(1e9 + 7);
-// DO NOT set INFTY_XXXs constants. They may bring some BUG! Use MAX_XXXs in climit instead.
- 
 // clear memory
 #define CLR(a) memset((a), 0 ,sizeof(a))
  
@@ -43,6 +39,22 @@ const int    MOD = (int)(1e9 + 7);
 #define debug(x) cerr << #x << " = " << (x) << " (L" << __LINE__ << ")" << " " << __FILE__ << endl
 
 int main() {
-    
+    ll m, n; cin >> n >> m;
+    ll x = m;
+    for (ll k = 1; k*k <= m; k++) {
+        if (m % k == 0) {
+            ll l = m / k;
+            if (k >= n && k < x) x = k;
+            if (l >= n && l < x) x = l;
+        }
+    }
+    cout << (m / x) << endl;
     return 0;
 }
+
+// https://atcoder.jp/contests/abc112/tasks/abc112_d
+// 約数を知りたいとき，わざわざ素因数分解をしなくても
+// kを1から\sqrt{M}まで動かして，mがkで割り切れるかどうかを調べれば良い
+// ことがある
+
+// 知りたいのは, Mの約数であってN以上の最小のもの
